@@ -6,11 +6,11 @@
             <li><?/*= $this->Html->link(__('New User'), ['action' => 'add']) */?></li>
             <li><?/*= $this->Html->link(__('List Expandables'), ['controller' => 'Expandables', 'action' => 'index']) */?></li>
             <li><?/*= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) */?></li>
-        </ul>-->
-    </nav>
+        </ul>
+    </nav> -->
     <div class="page-title">
         <span class="title">Users List</span>
-        <div class="description">User Information List</div>
+        <div class="description">User Information List <?= $this->Paginator->counter() ?></div>
     </div>
 <div class="row">
     <div class="col-xs-12">
@@ -38,9 +38,16 @@
                         <td><?= h($user->phone) ?></td>
                         <td><?= h($user->address) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                            <?= $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>',
+                            ['action' => 'view', $user->id] ,
+                            ['class' => '', 'escape' => false]
+                            ) ?>
+                            <?= $this->Html->link('<i class="glyphicon glyphicon-edit"></i>',
+                                ['action' => 'edit', $user->id] ,
+                                ['class' => '' , 'escape' => false]) ?>
+                            <i class=""><?= $this->Form->postLink('<i class="glyphicon glyphicon-remove"></i>',
+                                    ['action' => 'delete', $user->id],
+                                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => '', 'escape' => false ]) ?></i>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -50,13 +57,13 @@
     </div>
 </div>
 </div>
-    <div class="paginator">
+    <div class="paginator text-center">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
-        <p><?= $this->Paginator->counter() ?></p>
+
     </div>
 </div>
 

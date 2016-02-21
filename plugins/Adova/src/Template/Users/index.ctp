@@ -1,14 +1,4 @@
-
-<div class="side-body">
-   <!-- <nav class="large-3 medium-4 columns" id="actions-sidebar">
-        <ul class="side-nav">
-            <li class="heading"><?/*= __('Actions') */?></li>
-            <li><?/*= $this->Html->link(__('New User'), ['action' => 'add']) */?></li>
-            <li><?/*= $this->Html->link(__('List Expandables'), ['controller' => 'Expandables', 'action' => 'index']) */?></li>
-            <li><?/*= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) */?></li>
-        </ul>
-    </nav> -->
-    <div class="page-title">
+<div class="page-title">
         <span class="title">Users List</span>
         <div class="description">User Information List <?= $this->Paginator->counter() ?></div>
     </div>

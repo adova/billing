@@ -12,6 +12,10 @@ use App\Controller\AppController;
 
 class UsersController extends AppController
 {
+    public function beforeRender(\Cake\Event\Event $event)
+    {
+        $this->viewBuilder()->theme('Adova');
+    }
 
     /**
      * Index method

@@ -9,6 +9,7 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\UsersTable $Users
  */
+
 class UsersController extends AppController
 {
 

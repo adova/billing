@@ -17,8 +17,12 @@
             echo $this->Form->input('password');
             echo $this->Form->input('phone');
             echo $this->Form->input('address');
-            echo $this->Form->input('role');
         ?>
+        <select name='role'>
+                      <option value='1'>Admin</option>
+                      <option value='2'>Manager</option>
+                      <option value='3'>Customer</option>
+        </select>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>

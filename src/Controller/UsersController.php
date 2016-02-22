@@ -9,7 +9,6 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\UsersTable $Users
  */
-
 class UsersController extends AppController
 {
     public function beforeRender(\Cake\Event\Event $event)
@@ -114,5 +113,10 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function logIn()
+    {
+        $this->viewBuilder()->layout('login');
     }
 }

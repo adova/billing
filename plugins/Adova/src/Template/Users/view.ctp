@@ -49,7 +49,8 @@
                             <?php
                             if ($user->email) {
                                 echo $user->email;
-                            }else{
+                            }
+                            else{
                                 echo 'N/A';
                             }
                             ?>

@@ -10,7 +10,10 @@
         <li><?= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) ?> </li>
     </ul>
 </nav> -->
-
+<div class="page-title">
+    <span class="title">View Information </span>
+    <div class="description"></div>
+</div>
 <div class="row">
     <div class="col-xs-6">
         <div class="card">

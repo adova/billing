@@ -25,7 +25,19 @@
             echo $this->Form->input('address');
             echo $this->Form->input('role');
         ?>
+
     </fieldset>
+    <div class="radio">
+        <label>
+            <input type="radio" name="status"  value="1" checked>Active
+
+        </label>
+        <label>
+            <input type="radio" name="status"  value="0">Inactive
+
+        </label>
+    </div>
+
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -35,8 +35,8 @@
                             <option value='3'>Manager</option>
                             <option value='4'>Customer</option>
                         </select>
-
                     </div>
+
                     <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
                     <input type="submit" value="Submit">
                     </form>

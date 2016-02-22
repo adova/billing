@@ -9,12 +9,17 @@
                 <table class="table" cellpadding="0" cellspacing="0">
                     <thead>
                     <tr>
-                        <th><?= $this->Paginator->sort('id') ?></th>
-                        <th><?= $this->Paginator->sort('first_name') ?></th>
-                        <th><?= $this->Paginator->sort('last_name') ?></th>
-                        <th><?= $this->Paginator->sort('email') ?></th>
-                        <th><?= $this->Paginator->sort('phone') ?></th>
-                        <th><?= $this->Paginator->sort('address') ?></th>
-                        <th class="actions"><?= __('Actions') ?></th>
+                        <th><?= $this->Form->input('last_name') ?></th>
+                        <th><?= $this->Form->input('email') ?></th>
+                        <th><?= $this->Form->input('password') ?></th>
+                        <th><?= $this->Form->input('phone') ?></th>
+                        <th><?= $this->Form->input('address') ?></th>
+                        <th>
+                            <select name='role'>
+                                <option value='1'>Admin</option>
+                                <option value='2'>Manager</option>
+                                <option value='3'>Customer</option>
+                            </select>
+                        </th>
                     </tr>
                     </thead>

@@ -9,7 +9,6 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\UsersTable $Users
  */
-
 class UsersController extends AppController
 {
     public function beforeRender(\Cake\Event\Event $event)
@@ -60,7 +59,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             //dump($this->request->data); die();
-           // dump($user->errors()); die();
+            // dump($user->errors()); die();
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -114,5 +113,10 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function logIn()
+    {
+        $this->viewBuilder()->layout('login');
     }
 }

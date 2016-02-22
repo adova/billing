@@ -28,12 +28,13 @@
                         <?php echo $this->Form->input('address', ['class' => 'form-control']); ?>
                     </div>
                     <div class='form-group'>
-                      <select class='form-control' name='role'>
+                        <label for="role">Role</label>
+                        <select class='form-control' name='role'>
                             <option value='1'>Admin</option>
                             <option value='2'>Director</option>
                             <option value='3'>Manager</option>
                             <option value='4'>Customer</option>
-                      </select>
+                        </select>
 
                     </div>
                     <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>

@@ -1,8 +1,5 @@
-<div class="side-body">
-
-    <div class="page-title">
-        <span class="title">Users Add</span>
-        <div class="description">Create New User</div>
+ <div class="page-title" style="text-align: center;">
+        <span class="title">Create New User</span>
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

@@ -1,31 +1,48 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Expandables'), ['controller' => 'Expandables', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->input('first_name');
-            echo $this->Form->input('last_name');
-            echo $this->Form->input('email');
-            echo $this->Form->input('password');
-            echo $this->Form->input('phone');
-            echo $this->Form->input('address');
-            echo $this->Form->input('role');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="page-title">
+    <span class="title">Create New User</span>
+    <div class="description">Create New User</div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card">
+            <div class="card-body">
+                <?= $this->Form->create($user) ?>
+                <fieldset>
+                    <legend><?= __('Edit User') ?></legend>
+                    <div class='form-group'>
+                        <?= $this->Form->input('first_name'); ?>
+                    </div>
+                    <div class='form-group'>
+                        <?= $this->Form->input('last_name'); ?>
+                    </div>
+                    <div class='form-group'>
+                        <?= $this->Form->input('email'); ?>
+                    </div>
+                    <div class='form-group'>
+                        <?= $this->Form->input('phone'); ?>
+                    </div>
+                    <div class='form-group'>
+                        <?= $this->Form->input('address'); ?>
+                    </div>
+                    <div class='form-group'>
+                        <label for="role">Role</label>
+                        <select class='form-control' name='role'>
+                            <option value='1' >Admin</option>
+                            <option value='2'>Director</option>
+                            <option value='3'>Manager</option>
+                            <option value='4'>Customer</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
+                <input type="submit" value="Submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
 </div>

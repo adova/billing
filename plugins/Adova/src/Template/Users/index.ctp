@@ -23,7 +23,15 @@
                 <tbody>
                     <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?= h($user->first_name) ?></td>
+                        <td>
+                            <?php
+                            if ($user->first_name) {
+                                echo $user->first_name;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                         <td><?= h($user->last_name) ?></td>
                         <td><?= h($user->email) ?></td>
                         <td><?= h($user->phone) ?></td>

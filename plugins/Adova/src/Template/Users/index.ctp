@@ -2,8 +2,8 @@
 <div class="side-body">
 
     <div class="page-title">
-        <span class="title">Users List</span>
-        <div class="description">User Information List <?= $this->Paginator->counter() ?></div>
+        <span class="title">Users List </span> (  Shows <span class="description"><?= $this->Paginator->counter() ?> )</span>
+        <div class="description"></div>
     </div>
 <div class="row">
     <div class="col-xs-12">
@@ -43,7 +43,7 @@
     </div>
 </div>
 </div>
-    <div class="paginator text-center">
+    <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>

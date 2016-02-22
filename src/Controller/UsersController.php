@@ -119,4 +119,8 @@ class UsersController extends AppController
     {
         $this->viewBuilder()->layout('login');
     }
+    public function SignUp()
+    {
+        $this->viewBuilder()->layout('signup');
+    }
 }

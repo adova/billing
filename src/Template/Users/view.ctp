@@ -24,8 +24,8 @@
             <th><?= __('Email') ?></th>
             <td><?= h($user->email) ?></td>
         </tr>
-            <th><?= __('Phone') ?></th>
-            <td><?= h($user->phone) ?></td>
+        <th><?= __('Phone') ?></th>
+        <td><?= h($user->phone) ?></td>
         </tr>
         <tr>
             <th><?= __('Address') ?></th>
@@ -49,32 +49,25 @@
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related Expandables') ?></h4>
+        <h4><?= __('Extra Table') ?></h4>
         <?php if (!empty($user->expandables)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Field Name') ?></th>
-                <th><?= __('Created') ?></th>
-                <th><?= __('Modified') ?></th>
-                <th><?= __('User Id') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($user->expandables as $expandables): ?>
-            <tr>
-                <td><?= h($expandables->id) ?></td>
-                <td><?= h($expandables->field_name) ?></td>
-                <td><?= h($expandables->created) ?></td>
-                <td><?= h($expandables->modified) ?></td>
-                <td><?= h($expandables->user_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Expandables', 'action' => 'view', $expandables->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Expandables', 'action' => 'edit', $expandables->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Expandables', 'action' => 'delete', $expandables->id], ['confirm' => __('Are you sure you want to delete # {0}?', $expandables->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th><?= __('Data') ?></th>
+                    <th><?= __('Value') ?></th>
+                </tr>
+                <?php foreach ($user->expandables as $expandables): ?>
+                    <tr>
+                        <td><?= h($expandables->field_name) ?></td>
+                        <td>
+                            <?php foreach ($expandables['informations'] as $information): ?>
+                                <?php echo $information['value'] ?>
+                                <br>
+                            <?php endforeach; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
         <?php endif; ?>
     </div>
 </div>

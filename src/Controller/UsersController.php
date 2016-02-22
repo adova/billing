@@ -40,9 +40,11 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['Expandables']
+            'contain' => [
+                'Expandables' => ['Informations']
+            ]
         ]);
-
+        //dump($user); die();
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
     }

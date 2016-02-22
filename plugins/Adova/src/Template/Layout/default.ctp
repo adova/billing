@@ -121,8 +121,9 @@
         ?>
         <!-- Main Content -->
         <div class="container-fluid">
-            <?= $this->fetch('content') ?>
-
+            <div class="side-body">
+                <?= $this->fetch('content') ?>
+            </div>
         </div>
     </div>
     <footer class="app-footer">

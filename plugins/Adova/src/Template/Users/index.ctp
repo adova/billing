@@ -1,5 +1,5 @@
 
-<div class="side-body">
+
 
     <div class="page-title">
         <span class="title">Users List </span> (  Shows <span class="description"><?= $this->Paginator->counter() ?> )</span>
@@ -29,9 +29,16 @@
                         <td><?= h($user->phone) ?></td>
                         <td><?= h($user->address) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                            <?= $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>',
+                            ['action' => 'view', $user->id] ,
+                            ['class' => '', 'escape' => false]
+                            ) ?>
+                            <?= $this->Html->link('<i class="glyphicon glyphicon-edit"></i>',
+                                ['action' => 'edit', $user->id] ,
+                                ['class' => '' , 'escape' => false]) ?>
+                            <i class=""><?= $this->Form->postLink('<i class="glyphicon glyphicon-remove"></i>',
+                                    ['action' => 'delete', $user->id],
+                                    ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'escape' => false ]) ?></i>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -49,6 +56,6 @@
         </ul>
 
     </div>
-</div>
+
 
 

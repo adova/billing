@@ -1,4 +1,7 @@
-<div class="page-title">
+
+<div class="side-body">
+
+    <div class="page-title">
         <span class="title">Users List</span>
         <div class="description">User Information List <?= $this->Paginator->counter() ?></div>
     </div>

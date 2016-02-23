@@ -32,10 +32,10 @@
 </head>
 
 <body class="flat-blue login-page">
-<div class="app-container">
+
     <?= $this->fetch('content') ?>
-<div>
-    <!-- Javascript Libs -->
+
+   <!-- Javascript Libs -->
     <?= $this->Html->script('lib/js/jquery.min') ?>
     <?= $this->Html->script('lib/js/bootstrap.min') ?>
     <?= $this->Html->script('lib/js/Chart.min') ?>

@@ -13,7 +13,7 @@
                         <?php echo $this->Form->input('last_name', ['class' => 'form-control']); ?>
                     </div>
                     <div class='form-group'>
-                        <?php echo $this->Form->input('email', ['class' => 'form-control']); ?>
+                        <?php echo $this->Form->input('user', ['class' => 'form-control']); ?>
                     </div>
                     <div class='form-group'>
                         <?php echo $this->Form->input('password', ['class' => 'form-control']); ?>

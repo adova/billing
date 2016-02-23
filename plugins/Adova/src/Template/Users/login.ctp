@@ -1,5 +1,4 @@
 <!-- Main Content -->
-<div class="container">
     <div class="login-box">
         <div>
             <div class="login-form row">
@@ -16,12 +15,12 @@
                                 Log In...
                             </div>
                         </div>
-                        <form>
-                            <div class="control">
-                                <input type="text" class="form-control" value="admin@gmail.com"/>
+                        <?php echo $this->Form->create($user) ?>
+                            <div class='form-group'>
+                                <?php echo $this->Form->input('email', ['class' => 'form-control']); ?>
                             </div>
-                            <div class="control">
-                                <input type="password" class="form-control" value="123456"/>
+                            <div class='form-group'>
+                                <?php echo $this->Form->input('password', ['class' => 'form-control']); ?>
                             </div>
                             <div class="login-button text-center">
                                 <input type="submit" class="btn btn-primary" value="Login">
@@ -29,13 +28,14 @@
                         </form>
                     </div>
                     <div class="login-footer">
+                        <span class="text-left"><a href="#" class="color-white">Sign Up</a></span>
                         <span class="text-right"><a href="#" class="color-white">Forgot password?</a></span>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <footer class="app-footer">
     <div class="wrapper">

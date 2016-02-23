@@ -10,7 +10,10 @@
         <li><?= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) ?> </li>
     </ul>
 </nav> -->
-
+<div class="page-title">
+    <span class="title">View Information </span>
+    <div class="description"></div>
+</div>
 <div class="row">
     <div class="col-xs-6">
         <div class="card">
@@ -21,38 +24,119 @@
                 <table class="table">
                     <tr>
                         <th class="active"><?= __('First Name') ?></th>
-                        <td><?= h($user->first_name) ?></td>
+                        <td>
+                            <?php
+                            if ($user->first_name) {
+                                echo $user->first_name;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Last Name') ?></th>
-                        <td><?= h($user->last_name) ?></td>
+                        <td>
+                            <?php
+                            if ($user->last_name) {
+                                echo $user->last_name;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Email') ?></th>
-                        <td><?= h($user->email) ?></td>
+                        <td>
+                            <?php
+                            if ($user->email) {
+                                echo $user->email;
+                            }
+                            else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <th class="active"><?= __('Phone') ?></th>
-                    <td><?= h($user->phone) ?></td>
+                    <td>
+                        <?php
+                        if ($user->phone) {
+                            echo $user->phone;
+                        }else{
+                            echo 'N/A';
+                        }
+                        ?>
+                    </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Address') ?></th>
-                        <td><?= h($user->address) ?></td>
-                    </tr>
-                    <tr>
-                        <th class="active"><?= __('Id') ?></th>
-                        <td><?= $this->Number->format($user->id) ?></td>
+                        <td>
+                            <?php
+                            if ($user->address) {
+                                echo $user->address;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Role') ?></th>
-                        <td><?= $this->Number->format($user->role) ?></td>
+                        <td>
+                            <?php
+                            if($user->role == 1){
+                                echo 'Admin';
+                            }
+                            else if($user->role == 2){
+                                echo 'Bill Collector';
+                            }
+                            else if($user->role == 3){
+                                echo 'User';
+                            }
+                            else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="active"><?= __('Status') ?></th>
+                        <td>
+                            <?php
+                            if($user->status == true){
+                                echo 'Active';
+                            }
+                            else if($user->status == false){
+                                echo 'In-Active';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Created') ?></th>
-                        <td><?= h($user->created) ?></td>
+                        <td>
+                            <?php
+                            if ($user->created) {
+                                echo $user->created;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="active"><?= __('Modified') ?></th>
-                        <td><?= h($user->modified) ?></td>
+                        <td>
+                            <?php
+                            if ($user->modified) {
+                                echo $user->modified;
+                            }else{
+                                echo 'N/A';
+                            }
+                            ?>
+                        </td>
                     </tr>
                 </table>
             </div>

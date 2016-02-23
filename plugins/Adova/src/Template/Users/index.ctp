@@ -1,10 +1,7 @@
-
-
-
-    <div class="page-title">
-        <span class="title">Users List </span> (  Shows <span class="description"><?= $this->Paginator->counter() ?> )</span>
-        <div class="description"></div>
-    </div>
+<div class="page-title">
+    <span class="title">Users List </span> (  Shows <span class="description"><?= $this->Paginator->counter() ?> )</span>
+    <div class="description"></div>
+</div>
 <div class="row">
     <div class="col-xs-12">
         <div class="card">

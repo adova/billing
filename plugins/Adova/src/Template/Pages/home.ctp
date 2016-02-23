@@ -1,4 +1,3 @@
-<div class="side-body padding-top">
     <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <a href="#">
@@ -180,4 +179,3 @@
             </div>
         </div>
     </div>
-</div>

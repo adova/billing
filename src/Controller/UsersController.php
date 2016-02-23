@@ -177,7 +177,7 @@ class UsersController extends AppController
     public function isAuthorized($user)
     {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 2) {
+        if (isset($user['role']) && $user['role'] ===1) {
             return true;
         } elseif ($this->request->action === 'profile') {
             return true;

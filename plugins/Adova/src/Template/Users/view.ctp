@@ -1,19 +1,3 @@
-<!--
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Expandables'), ['controller' => 'Expandables', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Expandable'), ['controller' => 'Expandables', 'action' => 'add']) ?> </li>
-    </ul>
-</nav> -->
-<div class="page-title">
-    <span class="title">View Information </span>
-    <div class="description"></div>
-</div>
 <div class="row">
     <div class="col-xs-6">
         <div class="card">
@@ -32,6 +16,7 @@
                     </tr>
                     <tr>
                         <th class="active"><?= __('Email') ?></th>
+
                         <td><?= h($user->email) ?></td>
                     </tr>
                     <th class="active"><?= __('Phone') ?></th>

@@ -33,18 +33,14 @@
                             <option value='4'>Customer</option>
                         </select>
 
-                    </div>
-                    <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
-                    <input type="submit" value="Submit">
-                    </form>
-
                 </div>
+                <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
+                <input type="submit" value="Submit">
+                </form>
+
             </div>
         </div>
     </div>
-
-
-</div>
 </div>
 
 

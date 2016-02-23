@@ -1,8 +1,4 @@
 <div class="page-title">
-    <span class="title">Create New User</span>
-    <div class="description">Create New User</div>
-</div>
-<div class="page-title">
     <span class="title">Edit Information </span>
     <div class="description"></div>
 </div>
@@ -31,10 +27,9 @@
                     <div class='form-group'>
                         <label for="role">Role</label>
                         <select class='form-control' name='role'>
-                            <option value='1' >Admin</option>
-                            <option value='2'>Director</option>
-                            <option value='3'>Manager</option>
-                            <option value='4'>Customer</option>
+                            <option value='1' <?php echo $user->role == 1 ? "selected" : '' ?> >Admin</option>
+                            <option value='2' <?php echo $user->role == 2 ? "selected" : '' ?>  >Bill Collector</option>
+                            <option value='3' <?php echo $user->role == 3 ? "selected" : '' ?>  >Customer</option>
                         </select>
                     </div>
                 </fieldset>

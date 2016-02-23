@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 
 /**
@@ -17,7 +18,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['signup', 'logout']);
+        $this->Auth->allow(['signup', 'logout', 'login']);
     }
 
     public function beforeRender(Event $event)
@@ -167,4 +168,23 @@ class UsersController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
+
+    public function profile()
+    {
+
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 2) {
+            return true;
+        } elseif ($this->request->action === 'profile') {
+            return true;
+        } else {
+            // Default deny
+            return false;
+        }
+    }
+
 }

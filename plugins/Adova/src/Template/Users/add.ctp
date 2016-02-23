@@ -1,5 +1,4 @@
 <div class="page-title">
-    <span class="title">Users Add</span>
     <div class="description">Create New User</div>
 </div>
 <div class="row">
@@ -35,10 +34,7 @@
                     </select>
 
                 </div>
-                <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
-                <input type="submit" value="Submit">
-                </form>
-
+                <input type="submit" value="Submit" class="btn btn-sm btn-info">
             </div>
         </div>
     </div>

@@ -1,31 +1,29 @@
-<div class="row">
-    <div class="col-xs-12">
-        <div class=" page-title">
-            <span class="title">Users List</span> ( Shows <span class="description"><?= $this->Paginator->counter() ?> )</span>
+
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title"><b>Users List</b></div>
         </div>
-        <div class="col-xs-offset-4 pull-right">
+        <div class="pull-right card-action">
             <?=
-            $this->Html->link('<i class=" glyphicon glyphicon-plus">Add User</i>',
+            $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Add User',
                 [
                     'action' => 'add',
 
                 ],
                 [
-                    'class' => 'btn btn-info',
+                    'class' => 'btn btn-sm btn-info',
                     'escape' => false
                 ]
             )
             ?>
         </div>
+        <div class="clear-both"></div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="card">
-            <div class="card-body">
+    <div class="card-body">
+        <div class="table-responsive">
                 <table class="table" cellpadding="0" cellspacing="0">
-                    <thead>
+                    <thead class="active">
                     <tr>
                         <th><?= $this->Paginator->sort('first_name') ?></th>
                         <th><?= $this->Paginator->sort('last_name') ?></th>
@@ -52,14 +50,14 @@
                             <td><?= h($user->phone) ?></td>
                             <td><?= h($user->address) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>',
+                                <?= $this->Html->link('<i class="glyphicon glyphicon-eye-open info"></i>',
                                     ['action' => 'view', $user->id],
                                     ['class' => '', 'escape' => false]
                                 ) ?>
-                                <?= $this->Html->link('<i class="glyphicon glyphicon-edit"></i>',
+                                <?= $this->Html->link('<i class="glyphicon glyphicon-edit warning"></i>',
                                     ['action' => 'edit', $user->id],
                                     ['class' => '', 'escape' => false]) ?>
-                                <i class=""><?= $this->Form->postLink('<i class="glyphicon glyphicon-remove"></i>',
+                                <i class=""><?= $this->Form->postLink('<i class="glyphicon glyphicon-remove danger"></i>',
                                         ['action' => 'delete', $user->id],
                                         ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'escape' => false]) ?></i>
                             </td>
@@ -67,7 +65,6 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </div>
@@ -77,8 +74,6 @@
         <?= $this->Paginator->numbers() ?>
         <?= $this->Paginator->next(__('next') . ' >') ?>
     </ul>
-
 </div>
-
 
 

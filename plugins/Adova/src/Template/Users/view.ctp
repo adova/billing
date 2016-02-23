@@ -16,6 +16,7 @@
                     </tr>
                     <tr>
                         <th class="active"><?= __('Email') ?></th>
+
                         <td><?= h($user->email) ?></td>
                     </tr>
                     <th class="active"><?= __('Phone') ?></th>

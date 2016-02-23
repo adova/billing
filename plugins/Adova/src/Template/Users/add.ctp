@@ -34,13 +34,11 @@
                         </select>
 
                 </div>
-                <?php //echo $this->Form->submit('Submit', ['class' => 'btn  btn-primary']); ?>
-                <input type="submit" value="Submit">
-                </form>
-
+                <input type="submit" value="Submit" class="btn btn-sm btn-info">
             </div>
         </div>
     </div>
 </div>
+
 
 

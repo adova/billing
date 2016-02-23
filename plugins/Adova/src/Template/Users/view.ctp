@@ -27,10 +27,6 @@
                         <td><?= h($user->address) ?></td>
                     </tr>
                     <tr>
-                        <th class="active"><?= __('Id') ?></th>
-                        <td><?= $this->Number->format($user->id) ?></td>
-                    </tr>
-                    <tr>
                         <th class="active"><?= __('Role') ?></th>
                         <td><?= $this->Number->format($user->role) ?></td>
                     </tr>
@@ -46,25 +42,26 @@
             </div>
         </div>
     </div>
+    <?php if (!empty($user->expandables)): ?>
     <div class="col-xs-6">
         <div class="card">
             <div class="card-body">
                 <div class="related">
-                    <h4><?= __('Extra Information') ?></h4>
-                    <?php if (!empty($user->expandables)): ?>
-                        <table class="table">
-                            <?php foreach ($user->expandables as $expandables): ?>
-                                <tr>
-                                    <td class="active"><?= h($expandables->field_name) ?></td>
-                                    <td>
-                                        <?php foreach ($expandables['informations'] as $information): ?>
-                                            <?php echo $information['value'] ?>
-                                            <br>
-                                        <?php endforeach; ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </table>
+
+                    <h4><?= __('More Information') ?></h4>
+                    <table class="table">
+                        <?php foreach ($user->expandables as $expandables): ?>
+                            <tr>
+                                <td class="active"><?= h($expandables->field_name) ?></td>
+                                <td>
+                                    <?php foreach ($expandables['informations'] as $information): ?>
+                                        <?php echo $information['value'] ?>
+                                        <br>
+                                    <?php endforeach; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
                     <?php endif; ?>
                 </div>
             </div>

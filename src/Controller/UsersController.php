@@ -127,7 +127,7 @@ class UsersController extends AppController
 
     public function signup()
     {
-        $this->viewBuilder()->layout('signup');
+        $this->viewBuilder()->layout('login');
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {

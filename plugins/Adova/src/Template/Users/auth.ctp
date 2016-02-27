@@ -12,33 +12,39 @@
             <!-- Border -->
             <div class="bor bg-green"></div>
             <!-- Form -->
-            <form class="form" role="form">
-                <!-- Form Group -->
-                <div class="form-group">
-                    <!-- Label -->
-                    <label class="control-label">Username</label>
-                    <!-- Input -->
-                    <input type="text" class="form-control" placeholder="Enter Username">
+            <?php echo $this->Form->create('Users', ['class' => 'form', 'role' => 'form']) ?>
+            <!-- Form Group -->
+            <div class="form-group">
+
+                <!-- Label -->
+                <!--                    <label class="control-label">Email Address</label>-->
+                <!-- Input -->
+                <!--                    <input type="text" class="form-control" placeholder="Enter Username">-->
+                <?php echo $this->Form->input('email', ['class' => 'form-control']); ?>
+
+            </div>
+            <div class="form-group">
+                <!--                    <label class="control-label">Password</label>-->
+                <!--                    <input type="password" class="form-control" placeholder="Enter Password">-->
+                <?php echo $this->Form->input('password', ['class' => 'form-control']); ?>
+
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Password</label>
-                    <input type="password" class="form-control" placeholder="Enter Password">
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Remember
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <!-- Button -->
-                    <button type="submit" class="btn btn-red">Sign In</button>&nbsp;
-                    <button type="submit" class="btn btn-lblue">Reset</button>
-                </div>
-                <div class="form-group">
-                    <a href="#" class="black">Forget Password ?</a>
-                </div>
+            </div>
+            <div class="form-group">
+                <!-- Button -->
+                <button type="submit" class="btn btn-red">Sign In</button>
+                &nbsp;
+                <button type="submit" class="btn btn-lblue">Reset</button>
+            </div>
+            <div class="form-group">
+                <a href="#" class="black">Forget Password ?</a>
+            </div>
             </form>
         </div>
     </div>
@@ -55,7 +61,7 @@
                     <!-- Label -->
                     <label class="control-label">Name</label>
                     <!-- Input -->
-                    <input type="text" class="form-control"  placeholder="Enter Name">
+                    <input type="text" class="form-control" placeholder="Enter Name">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Email</label>
@@ -85,7 +91,8 @@
                 </div>
                 <div class="form-group">
                     <!-- Buton -->
-                    <button type="submit" class="btn btn-red">Submit</button>&nbsp;
+                    <button type="submit" class="btn btn-red">Submit</button>
+                    &nbsp;
                     <button type="submit" class="btn btn-lblue">Reset</button>
                 </div>
             </form>
@@ -114,7 +121,8 @@
                 </div>
                 <div class="form-group">
                     <!-- Buton -->
-                    <button type="submit" class="btn btn-red">Submit</button>&nbsp;
+                    <button type="submit" class="btn btn-red">Submit</button>
+                    &nbsp;
                     <button type="submit" class="btn btn-lblue">Reset</button>
                 </div>
             </form>

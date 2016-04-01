@@ -190,15 +190,34 @@ class UsersController extends AppController
     }
 
     public function auth(){
+        $user = $this->Users->newEntity();
         $this->viewBuilder()->layout('auth');
         if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
+            if(isset($this->request->data['signup'])){
+                $user = $this->Users->patchEntity($user, $this->request->data);
+                $user->id = $this->Auth->user('id');
+                $user->status = 1;
+                $user->role = 3;
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('The user has been saved.'));
+                    return $this->redirect($this->referer());
+                } else {
+                    $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                }
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            if(isset($this->request->data['signin'])){
+
+            }
+            if(isset($this->request->data['contact'])){
+
+            }
+            if(isset($this->request->data['reset'])){
+
+            }
         }
+
+        //$this->set(compact('user'));
+        $this->set('user' , $user);
 
     }
 }

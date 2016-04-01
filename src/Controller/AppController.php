@@ -44,7 +44,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'authorize' => ['Controller'], // Added this line
+            //'authorize' => ['Controller'], // Added this line
             'loginAction' => [
                 'controller' => 'Users',
                 'action' => 'auth',

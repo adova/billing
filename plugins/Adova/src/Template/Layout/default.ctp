@@ -101,7 +101,7 @@
                                             ['class' => 'btn btn-default', 'escape' => false]
                                         ) ?>
                                         <?= $this->Html->link('<i class="fa fa-sign-out"></i> Logout',
-                                            ['action' => 'logout'],
+                                            ['controller' => 'users' , 'action' => 'logout'],
                                             ['class' => 'btn btn-default', 'escape' => false]
                                         ) ?>
 

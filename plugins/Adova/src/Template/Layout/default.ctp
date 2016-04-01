@@ -18,17 +18,7 @@
     <?= $this->Html->css('lib/css/select2.min') ?>
     <?= $this->Html->css('style') ?>
     <?= $this->Html->css('themes/flat-blue') ?>
-    <!--    <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/animate.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/bootstrap-switch.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/checkbox3.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/dataTables.bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../lib/css/select2.min.css">-->
-    <!-- CSS App -->
-    <!--   <link rel="stylesheet" type="text/css" href="../css/style.css">
-       <link rel="stylesheet" type="text/css" href="../css/themes/flat-blue.css">-->
+
 </head>
 
 <body class="flat-blue">
@@ -98,15 +88,23 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Emily Hart <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInDown">
                             <li class="profile-img">
-                                <img src="../img/profile/picjumbo.com_HNCK4153_resize.jpg" class="profile-img">
+                                <?= $this->Html->image('profile/picjumbo.com_HNCK4153_resize.jpg', array('alt' => 'picjumbo.com_HNCK4153_resize.jpg', 'class'=>'profile-img' ));?>
+
                             </li>
                             <li>
                                 <div class="profile-info">
                                     <h4 class="username">Emily Hart</h4>
                                     <p>emily_hart@email.com</p>
                                     <div class="btn-group margin-bottom-2x" role="group">
-                                        <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
-                                        <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+                                        <?= $this->Html->link('<i class="fa fa-user"></i> Profile',
+                                            ['action' => 'profile'],
+                                            ['class' => 'btn btn-default', 'escape' => false]
+                                        ) ?>
+                                        <?= $this->Html->link('<i class="fa fa-sign-out"></i> Logout',
+                                            ['action' => 'logout'],
+                                            ['class' => 'btn btn-default', 'escape' => false]
+                                        ) ?>
+
                                     </div>
                                 </div>
                             </li>
@@ -147,20 +145,6 @@
         <?= $this->Html->script('app') ?>
         <?= $this->Html->script('index') ?>
 
-        <!-- <script type="text/javascript" src="../lib/js/jquery.min.js"></script>
-         <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
-         <script type="text/javascript" src="../lib/js/Chart.min.js"></script>
-         <script type="text/javascript" src="../lib/js/bootstrap-switch.min.js"></script>
-         <script type="text/javascript" src="../lib/js/jquery.matchHeight-min.js"></script>
-         <script type="text/javascript" src="../lib/js/jquery.dataTables.min.js"></script>
-         <script type="text/javascript" src="../lib/js/dataTables.bootstrap.min.js"></script>
-         <script type="text/javascript" src="../lib/js/select2.full.min.js"></script>
-         <script type="text/javascript" src="../lib/js/ace/ace.js"></script>
-         <script type="text/javascript" src="../lib/js/ace/mode-html.js"></script>
-         <script type="text/javascript" src="../lib/js/ace/theme-github.js"></script>-->
-        <!-- Javascript -->
-        <!--<script type="text/javascript" src="../js/app.js"></script>
-        <script type="text/javascript" src="../js/index.js"></script>-->
 </body>
 
 </html>

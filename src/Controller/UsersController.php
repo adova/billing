@@ -18,7 +18,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['signup', 'logout', 'login']);
+        $this->Auth->allow(['signup', 'logout', 'login' , 'auth']);
     }
 
     public function beforeRender(Event $event)
@@ -127,12 +127,14 @@ class UsersController extends AppController
 
     public function signup()
     {
-        $this->viewBuilder()->layout('signup');
+        $this->viewBuilder()->layout('login');
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             $user->id = $this->Auth->user('id');
+            $user->status = 1;
+            $user->role = 3;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -145,7 +147,7 @@ class UsersController extends AppController
 
     }
 
-    public function login()
+    public function login1()
     {
         $this->viewBuilder()->layout('login');
         $user = $this->Users->newEntity();
@@ -177,7 +179,7 @@ class UsersController extends AppController
     public function isAuthorized($user)
     {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 2) {
+        if (isset($user['role']) && $user['role'] === 1) {
             return true;
         } elseif ($this->request->action === 'profile') {
             return true;
@@ -187,4 +189,16 @@ class UsersController extends AppController
         }
     }
 
+    public function auth(){
+        $this->viewBuilder()->layout('auth');
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Invalid username or password, try again'));
+        }
+
+    }
 }

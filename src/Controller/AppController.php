@@ -45,13 +45,13 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'authorize' => ['Controller'], // Added this line
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'auth',
+            ],
             'loginRedirect' => [
                 'controller' => 'Users',
                 'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Users',
-                'action' => 'logout',
             ],
             'authenticate' => [
                 'Form' => [

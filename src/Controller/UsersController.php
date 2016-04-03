@@ -147,25 +147,6 @@ class UsersController extends AppController
 
     }
 
-    public function login1()
-    {
-        $this->viewBuilder()->layout('login');
-        $user = $this->Users->newEntity();
-
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Invalid username or password, try again'));
-        }
-
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
-
-    }
-
     public function logout()
     {
         return $this->redirect($this->Auth->logout());

@@ -182,8 +182,6 @@ class UsersController extends AppController
 
             }
         }
-
-        //$this->set(compact('user'));
         $this->set('user' , $user);
 
     }

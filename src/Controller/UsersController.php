@@ -166,6 +166,7 @@ class UsersController extends AppController
                     $this->Flash->error(__('The user could not be saved. Please, try again.'));
                 }
             }
+            
             if(isset($this->request->data['signin'])){
                 $user = $this->Auth->identify();
                 if ($user) {

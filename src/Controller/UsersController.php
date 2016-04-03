@@ -106,6 +106,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
+
     /**
      * Delete method
      *

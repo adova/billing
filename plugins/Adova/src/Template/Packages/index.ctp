@@ -10,9 +10,12 @@
 <div class="card">
     <div class="card-header">
         <div class="card-title">
-            <div class="title"><b><?= __('Packages') ?><?= __('Search') ?></b></div>
+            <div class="title"><b><?= __('Packages') ?></b></div>
         </div>
         <div class="pull-right card-action">
+            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal">
+                <i class="glyphicon glyphicon-search"></i> Search
+            </button>
             <?=
             $this->Html->link('<i class="glyphicon glyphicon-plus"></i> Add Package',
                 [
@@ -68,5 +71,33 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Search Packages</h4>
+            </div>
+            <div class="modal-body">
+                <div class="packages form large-9 medium-8 columns content">
+                    <?= $this->Form->create($package) ?>
+                    <fieldset>
+                        <legend><?= __('Add Package') ?></legend>
+                        <?php
+                        echo $this->Form->input('package_name');
+                        echo $this->Form->input('ammount');
+                        ?>
+                    </fieldset>
+                    <?= $this->Form->button(__('Submit')) ?>
+                    <?= $this->Form->end() ?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>

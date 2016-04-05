@@ -76,16 +76,13 @@
                 <?php echo $this->Form->input('address', ['class' => 'form-control']); ?>
             </div>
             <div class="form-group">
-
                 <div class="checkbox">
-                    <div class="checkbox3 checkbox-round">
-                        <input type="checkbox" id="checkbox-1">
-                        <label for="checkbox-1">
-                            Remember me.
-                        </label>
-                    </div>
+                    <label>
+                        <input type="checkbox"> Remember
+                    </label>
                 </div>
             </div>
+
             <div class="form-group">
                 <!-- Buton -->
                 <button type="submit" name="signup" class="btn btn-red">Submit</button>

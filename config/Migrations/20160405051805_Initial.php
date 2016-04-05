@@ -5,6 +5,30 @@ class Initial extends AbstractMigration
 {
     public function up()
     {
+        $table = $this->table('billing_types');
+        $table
+            ->addColumn('name', 'integer', [
+                'default' => null,
+                'limit' => 128,
+                'null' => false,
+            ])
+            ->addColumn('created', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('modified', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('active', 'boolean', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->create();
+
         $table = $this->table('expandables');
         $table
             ->addColumn('field_name', 'string', [
@@ -34,6 +58,47 @@ class Initial extends AbstractMigration
             )
             ->create();
 
+        $table = $this->table('generates');
+        $table
+            ->addColumn('package_user_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('billing_type_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('active', 'integer', [
+                'default' => null,
+                'limit' => 4,
+                'null' => false,
+            ])
+            ->addIndex(
+                [
+                    'billing_type_id',
+                ],
+                ['unique' => true]
+            )
+            ->addIndex(
+                [
+                    'package_user_id',
+                ],
+                ['unique' => true]
+            )
+            ->addIndex(
+                [
+                    'billing_type_id',
+                ]
+            )
+            ->addIndex(
+                [
+                    'package_user_id',
+                ]
+            )
+            ->create();
+
         $table = $this->table('informations');
         $table
             ->addColumn('value', 'string', [
@@ -59,6 +124,57 @@ class Initial extends AbstractMigration
             ->addIndex(
                 [
                     'expandable_id',
+                ]
+            )
+            ->create();
+
+        $table = $this->table('package_users');
+        $table
+            ->addColumn('user_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('package_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('created', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('modified', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addColumn('active', 'boolean', [
+                'default' => null,
+                'limit' => null,
+                'null' => false,
+            ])
+            ->addIndex(
+                [
+                    'package_id',
+                ],
+                ['unique' => true]
+            )
+            ->addIndex(
+                [
+                    'user_id',
+                ],
+                ['unique' => true]
+            )
+            ->addIndex(
+                [
+                    'package_id',
+                ]
+            )
+            ->addIndex(
+                [
+                    'user_id',
                 ]
             )
             ->create();
@@ -183,10 +299,52 @@ class Initial extends AbstractMigration
             )
             ->update();
 
+        $this->table('generates')
+            ->addForeignKey(
+                'billing_type_id',
+                'billing_types',
+                'id',
+                [
+                    'update' => 'CASCADE',
+                    'delete' => 'CASCADE'
+                ]
+            )
+            ->addForeignKey(
+                'package_user_id',
+                'package_users',
+                'id',
+                [
+                    'update' => 'CASCADE',
+                    'delete' => 'CASCADE'
+                ]
+            )
+            ->update();
+
         $this->table('informations')
             ->addForeignKey(
                 'expandable_id',
                 'expandables',
+                'id',
+                [
+                    'update' => 'CASCADE',
+                    'delete' => 'CASCADE'
+                ]
+            )
+            ->update();
+
+        $this->table('package_users')
+            ->addForeignKey(
+                'package_id',
+                'packages',
+                'id',
+                [
+                    'update' => 'CASCADE',
+                    'delete' => 'CASCADE'
+                ]
+            )
+            ->addForeignKey(
+                'user_id',
+                'users',
                 'id',
                 [
                     'update' => 'CASCADE',
@@ -216,9 +374,25 @@ class Initial extends AbstractMigration
                 'user_id'
             );
 
+        $this->table('generates')
+            ->dropForeignKey(
+                'billing_type_id'
+            )
+            ->dropForeignKey(
+                'package_user_id'
+            );
+
         $this->table('informations')
             ->dropForeignKey(
                 'expandable_id'
+            );
+
+        $this->table('package_users')
+            ->dropForeignKey(
+                'package_id'
+            )
+            ->dropForeignKey(
+                'user_id'
             );
 
         $this->table('previous_packages')
@@ -226,8 +400,11 @@ class Initial extends AbstractMigration
                 'package_id'
             );
 
+        $this->dropTable('billing_types');
         $this->dropTable('expandables');
+        $this->dropTable('generates');
         $this->dropTable('informations');
+        $this->dropTable('package_users');
         $this->dropTable('packages');
         $this->dropTable('previous_packages');
         $this->dropTable('users');

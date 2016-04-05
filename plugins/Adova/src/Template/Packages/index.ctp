@@ -10,7 +10,7 @@
 <div class="card">
     <div class="card-header">
         <div class="card-title">
-            <div class="title"><b><?= __('Packages') ?></b></div>
+            <div class="title"><b><?= __('Packages') ?><?= __('Search') ?></b></div>
         </div>
         <div class="pull-right card-action">
             <?=

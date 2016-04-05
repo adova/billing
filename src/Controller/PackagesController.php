@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Packages Controller
@@ -22,6 +23,10 @@ class PackagesController extends AppController
 
         $this->set(compact('packages'));
         $this->set('_serialize', ['packages']);
+    }
+    public function beforeRender(Event $event)
+    {
+        $this->viewBuilder()->theme('Adova');
     }
 
     /**
